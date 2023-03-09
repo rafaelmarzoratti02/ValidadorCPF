@@ -14,6 +14,7 @@ ValidaCpf.prototype.valida = function () {
   let cpfParcial = this.cpfLimpo.slice(0, -2)
   const digito1 = this.criaDigito(cpfParcial)
   const digito2 = this.criaDigito(cpfParcial + digito1)
+  if (this.isSequencia()) return false
 
   const novoCpf = cpfParcial + digito1 + digito2
   return novoCpf === this.cpfLimpo
@@ -32,5 +33,10 @@ ValidaCpf.prototype.criaDigito = function (cpfParcial) {
   return digito > "9" ? "0" : digito
 }
 
-const cpf = new ValidaCpf("705.484.450-52")
+ValidaCpf.prototype.isSequencia = function () {
+  const sequencia = this.cpfLimpo[0].repeat(this.cpfLimpo.length)
+  return sequencia === this.cpfLimpo ? true : false
+}
+
+const cpf = new ValidaCpf("111.111.111-11")
 console.log(cpf.valida())
