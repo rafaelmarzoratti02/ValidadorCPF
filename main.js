@@ -14,11 +14,9 @@ ValidaCpf.prototype.valida = function () {
   let cpfParcial = this.cpfLimpo.slice(0, -2)
   const digito1 = this.criaDigito(cpfParcial)
   const digito2 = this.criaDigito(cpfParcial + digito1)
-  console.log(digito2)
 
   const novoCpf = cpfParcial + digito1 + digito2
-  console.log(novoCpf)
-  return true
+  return novoCpf === this.cpfLimpo
 }
 
 ValidaCpf.prototype.criaDigito = function (cpfParcial) {
