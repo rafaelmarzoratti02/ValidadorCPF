@@ -38,5 +38,9 @@ ValidaCpf.prototype.isSequencia = function () {
   return sequencia === this.cpfLimpo ? true : false
 }
 
-const cpf = new ValidaCpf("111.111.111-11")
-console.log(cpf.valida())
+const cpf = new ValidaCpf("054.101.590-71")
+if (cpf.valida()) {
+  console.log("Cpf válido")
+} else {
+  console.log("Cpf inválido")
+}
